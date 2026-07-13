@@ -288,7 +288,7 @@ def chek_date(message):
     weeks = get_week(date)
     if weeks is None:
          bot.send_message(uid, "Установите новую дату.")
-        return
+         return
     else:
         bot.send_message(uid, f"прошло {weeks}")
 
