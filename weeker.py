@@ -1,4 +1,5 @@
 import psycopg2
+import socket
 import telebot
 import os
 import re
