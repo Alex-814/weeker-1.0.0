@@ -1,1 +1,2 @@
 pyTelegramBotapi
+psycopg2-binary
