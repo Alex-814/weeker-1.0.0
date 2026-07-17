@@ -233,8 +233,8 @@ def start(message):
         else:
             bot.send_message(uid, "Ошибка с датой. Отправьте новую.")
     else:
-        bot.send_message(uid, "Приветствуем.\n Этот бот будет еженедельно по воскресеньям в 10 вечера присылать вам отчет о количестве прожитых вами недель.\n\n"
-                              "Для начала отправьте дату своего рождения в формате ДД.ММ.ГГ, а затем используйте /timezone UTC+/-N для указания вашего часового пояса относительно Гринвича.")
+        bot.send_message(uid, "Приветствуем.\n\nЭтот бот будет еженедельно по воскресеньям в 10 вечера присылать вам отчет о количестве прожитых вами недель.\n\n\n"
+                              "Для начала отправьте дату своего рождения в формате ДД.ММ.ГГГГ, а затем используйте '/timezone UTC+/-N' для указания вашего часового пояса относительно Гринвича.")
 
 @bot.message_handler(commands = ['timezone'])
 def get_time(message):
@@ -242,7 +242,7 @@ def get_time(message):
     try:
         parts = message.text.split()
         if len(parts) != 2:
-            bot.send_message(uid, "Используйте /timezone UTC +/- N.")
+            bot.send_message(uid, "Используйте '/timezone UTC+/-N'.")
             return
         del_utc = parts[1].upper().replace('UTC', '')
         utc_int = int(del_utc)
@@ -254,7 +254,7 @@ def get_time(message):
         else:
             bot.send_message(uid, "Ошибка сохранения.")
     except:
-        bot.send_message(uid, "Используйте /timezone UTC +/- N.")
+        bot.send_message(uid, "Используйте '/timezone UTC+/-N'.")
 
 @bot.message_handler(commands = ['deletedate'])
 def del_date(message):
@@ -264,7 +264,7 @@ def del_date(message):
     else:
         bot.send_message(uid, "Ошибка удаления даты.")
 
-@bot.message_handler(commands = ['chek'])
+@bot.message_handler(commands = ['check'])
 def chek_date(message):
     uid = str(message.chat.id)
     date = load_date(uid)
